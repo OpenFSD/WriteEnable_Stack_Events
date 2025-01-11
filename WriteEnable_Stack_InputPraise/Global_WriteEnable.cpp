@@ -7,7 +7,7 @@ namespace WaitEnableWrite
     bool Global_WriteEnable::flag_write_IDLE[2] = { NULL, NULL };
     bool Global_WriteEnable::flag_write_WAIT[2] = { NULL, NULL };
     bool Global_WriteEnable::flag_write_WRITE[2] = { NULL, NULL };
-    unsigned char* Global_WriteEnable::ptr_num_Implemented_Cores = NULL;
+    unsigned char Global_WriteEnable::ptr_num_Implemented_Cores = NULL;
 
     Global_WriteEnable::Global_WriteEnable()
     {
@@ -20,15 +20,15 @@ namespace WaitEnableWrite
         flag_write_WRITE[0] = bool(true);
         flag_write_WRITE[1] = bool(false);
 
-        ptr_num_Implemented_Cores = new unsigned char(4);//NUMBER OF CORES
+        ptr_num_Implemented_Cores = unsigned char(4);//NUMBER OF CORES
     }
 
     Global_WriteEnable::~Global_WriteEnable()
     {
-        delete ptr_num_Implemented_Cores;
+        
     }
 
-    unsigned char* Global_WriteEnable::Get_NumCores()
+    unsigned char Global_WriteEnable::Get_NumCores()
     {
         return ptr_num_Implemented_Cores;
     }
