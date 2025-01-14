@@ -13,6 +13,8 @@ namespace WaitEnableWrite
         static void Write_End(unsigned char coreId);
         static void Write_Start(unsigned char coreId);
 
+        static class WriteEnable* Get_WriteEnable();
+
     protected:
 
     private:

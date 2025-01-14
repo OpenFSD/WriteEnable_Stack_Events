@@ -26,12 +26,10 @@ namespace WaitEnableWrite
         while (ptr_WriteEnable_Control == NULL) { /* wait untill created */ }
     }
 
-    void WriteEnable::Write_End(
-        class WaitEnableWrite::WriteEnable_Control* ptr_WriteEnable_Control,
-        unsigned char coreId,
-        class WaitEnableWrite::Global_WriteEnable* ptr_Global
-    )
+    void WriteEnable::Write_End(unsigned char coreId)
     {
+        class WaitEnableWrite::WriteEnable_Control* ptr_WriteEnable_Control = WaitEnableWrite::Framework_WriteEnable::Get_WriteEnable()->Get_WriteEnable_Control();
+        class WaitEnableWrite::Global_WriteEnable* ptr_Global = WaitEnableWrite::Framework_WriteEnable::Get_WriteEnable()->Get_GlobalForWriteControl();
         for (unsigned char index = 0; index < 2; index++)
         {
             ptr_WriteEnable_Control->SetFlag_writeState(coreId, index, ptr_Global->GetConst_Write_IDLE(index));
@@ -49,11 +47,7 @@ namespace WaitEnableWrite
         );
         ptr_WriteEnable_Control->SetFlag_readWrite_Open(false);
     }
-    void WriteEnable::Write_Start(
-        class WaitEnableWrite::WriteEnable_Control* ptr_WriteEnable_Control,
-        unsigned char coreId,
-        class WaitEnableWrite::Global_WriteEnable* ptr_Global
-    )
+    void WriteEnable::Write_Start(unsigned char coreId)
     {
         ptr_WriteEnable_Control->WriteEnable_Request(
             coreId,

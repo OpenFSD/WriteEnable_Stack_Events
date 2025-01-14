@@ -17,19 +17,16 @@ namespace WaitEnableWrite
 
 	void Framework_WriteEnable::Write_End(unsigned char coreId)
 	{
-		ptr_WriteEnable->Write_End(
-			ptr_WriteEnable->Get_WriteEnable_Control(),
-			coreId,
-			ptr_WriteEnable->Get_GlobalForWriteControl()
-		);
+		ptr_WriteEnable->Write_End(coreId);
 	}
 
 	void Framework_WriteEnable::Write_Start(unsigned char coreId)
 	{
-		ptr_WriteEnable->Write_Start(
-			ptr_WriteEnable->Get_WriteEnable_Control(),
-			coreId,
-			ptr_WriteEnable->Get_GlobalForWriteControl()
-		);
+		ptr_WriteEnable->Write_Start(coreId);
+	}
+
+	WaitEnableWrite::WriteEnable* Framework_WriteEnable::Get_WriteEnable()
+	{
+		return ptr_WriteEnable;
 	}
 }
