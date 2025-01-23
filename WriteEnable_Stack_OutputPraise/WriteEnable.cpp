@@ -10,6 +10,7 @@ namespace WaitEnableWrite
 
     {
         ptr_Global = new WaitEnableWrite::Global_WriteEnable();
+        while (ptr_Global == NULL) { /* wait untill created */ }
         ptr_WriteEnable_Control = NULL;
     }
 
@@ -51,7 +52,6 @@ namespace WaitEnableWrite
     {
         ptr_WriteEnable_Control->WriteEnable_Request(
             coreId,
-
             ptr_Global
         );
         ptr_WriteEnable_Control->WriteQue_Update(

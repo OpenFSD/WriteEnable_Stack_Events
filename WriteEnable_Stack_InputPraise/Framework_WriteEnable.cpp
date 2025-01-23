@@ -15,6 +15,12 @@ namespace WaitEnableWrite
 
 	}
 
+	void Framework_WriteEnable::Create_WriteEnable()
+	{
+		ptr_WriteEnable = new class WaitEnableWrite::WriteEnable();
+		while (ptr_WriteEnable == NULL) { /* wait untill created */ }
+	}
+
 	void Framework_WriteEnable::Write_End(unsigned char coreId)
 	{
 		ptr_WriteEnable->Write_End(coreId);

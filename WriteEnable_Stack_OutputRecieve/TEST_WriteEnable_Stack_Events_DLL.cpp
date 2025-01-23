@@ -6,6 +6,7 @@
 int main()
 {
     WaitEnableWrite::Framework_WriteEnable* framework_WriteEnable = new class WaitEnableWrite::Framework_WriteEnable();
+    framework_WriteEnable->Create_WriteEnable();
     std::cout << "Hello World!\n";
 }
 
